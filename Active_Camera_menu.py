@@ -40,7 +40,7 @@ class VIEW3D_MT_cameras_main(bpy.types.Menu):
 
     def draw(self, context):
         layout = self.layout        
-        layout.prop(bpy.context.scene, "camera", text="")
+        layout.prop(bpy.context.scene, "camera", text="", icon="CAMERA_DATA")
 
         #layout.separator()
 
@@ -52,7 +52,7 @@ def cameras_specials_menu(self, contxt):
     ob = bpy.context.object
     if ob is not None and ob.type == 'CAMERA':
         self.layout.separator()
-        self.layout.menu(VIEW3D_MT_cameras_main.bl_idname)
+        self.layout.menu(VIEW3D_MT_cameras_main.bl_idname, icon="VIEW_CAMERA")
    
 ###########################################################################################
 ##################################### Register ############################################
@@ -61,6 +61,7 @@ def cameras_specials_menu(self, contxt):
 def register():
     bpy.utils.register_class(VIEW3D_MT_cameras_main)
     bpy.types.VIEW3D_MT_object_context_menu.prepend(cameras_specials_menu)
+    #bpy.types.VIEW3D_MT_object_context_menu.append(cameras_specials_menu)
     
 def unregister():
     bpy.utils.unregister_class(VIEW3D_MT_cameras_main)
