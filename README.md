@@ -33,7 +33,7 @@ just add any key in Keymaps for this operator `objects.lock_unlock` and choose a
 
 ![lock-unlock](https://user-images.githubusercontent.com/87300864/129525373-90708996-2242-4b6f-8768-c16efef1cd79.png)
 
-## Outliner_Menu_Entries
+## Outliner_Menu_Entries.py
 new entries for Outliner context for Objects and for Collections selected:
 
 For objects:
