@@ -58,8 +58,9 @@ addon with options to moving UV up and down in the list and sorting.
 
 ![UV_sorting](https://user-images.githubusercontent.com/87300864/129541363-132d5855-9732-4217-ace9-a156f9ba11f6.png)
 
-also there is Batch tools for UV, you can get this addon menus here
-https://blenderartists.org/t/select-sync-uv-channel-layer-between-multiple-objects/1314529/5
+also there is Batch tools for UV, 
+
+you can get this addon menus here https://blenderartists.org/t/select-sync-uv-channel-layer-between-multiple-objects/1314529/5
 
 ![1](https://user-images.githubusercontent.com/87300864/129541521-0ae5a313-b1b5-4b2e-9802-4602cc75f77a.png)
 ![2](https://user-images.githubusercontent.com/87300864/129541527-448cf1ac-17fc-4409-8f90-21400f7c79d9.png)
