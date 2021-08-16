@@ -26,7 +26,15 @@ Also if you want it to be like this
 
 just rename `OUTLINER_MT_collection_visibility` to `OUTLINER_MT_collection` at the bottom in the script file.
 
-## lock_unlock.py
+## Inactive_Shading_v_1_0_8.py
+Makes all unselected (inactive) objects display as wire or bounds, 
+
+with posibility add selected active collection to ignore list as many as you need
+
+![IS_1_0_8](https://user-images.githubusercontent.com/87300864/129542905-4467f689-2404-4832-b70e-6ce52a89ae84.png)
+![1_0_8](https://user-images.githubusercontent.com/87300864/129542523-58ae3b39-e62c-462d-9034-4bfe18bd99b2.png)
+
+## Lock_unlock.py
 simple addon that adds operator to lock selected and unlock all (Freeze/Unfreeze 3ds Max like).
 
 just add any key in Keymaps for this operator `objects.lock_unlock` and choose action
@@ -55,7 +63,7 @@ Switching to Collection where selected active object located
 
 ![SAC_0 1 1](https://user-images.githubusercontent.com/87300864/129539505-6ce278b3-5224-4fbe-8051-9086a7c5eaa4.png)
 
-## uv_map_list_tools.py
+## UV_map_list_tools.py
 addon with options to moving UV up and down in the list and sorting.
 
 ![UV_sorting](https://user-images.githubusercontent.com/87300864/129541363-132d5855-9732-4217-ace9-a156f9ba11f6.png)
@@ -66,11 +74,3 @@ you can get this addon menus here https://blenderartists.org/t/select-sync-uv-ch
 
 ![1](https://user-images.githubusercontent.com/87300864/129541521-0ae5a313-b1b5-4b2e-9802-4602cc75f77a.png)
 ![2](https://user-images.githubusercontent.com/87300864/129541527-448cf1ac-17fc-4409-8f90-21400f7c79d9.png)
-
-## Inactive_Shading_v_1_0_8.py
-Makes all unselected (inactive) objects display as wire or bounds, 
-
-with posibility add selected active collection to ignore list as many as you need
-
-![IS_1_0_8](https://user-images.githubusercontent.com/87300864/129542905-4467f689-2404-4832-b70e-6ce52a89ae84.png)
-![1_0_8](https://user-images.githubusercontent.com/87300864/129542523-58ae3b39-e62c-462d-9034-4bfe18bd99b2.png)
