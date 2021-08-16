@@ -58,7 +58,7 @@ For collections (possibile with new ‘selected_ids’ feature):
 3. Duplicate Linked - for multiple selected collections
 
 ## Switch_Active_Collection_0_1_1.py
-Switching to Collection where selected active object located
+Make active Collection where selected active object located
 
 ![SAC_0 1 1](https://user-images.githubusercontent.com/87300864/129539505-6ce278b3-5224-4fbe-8051-9086a7c5eaa4.png)
 
