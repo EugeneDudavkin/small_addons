@@ -65,7 +65,9 @@ https://blenderartists.org/t/select-sync-uv-channel-layer-between-multiple-objec
 ![2](https://user-images.githubusercontent.com/87300864/129541527-448cf1ac-17fc-4409-8f90-21400f7c79d9.png)
 
 ## Inactive_Shading_v_1_0_8.py
-Makes all unselected (inactive) objects display as wire or bounds, with posibility add selected active collection to ignore list as many as you need
+Makes all unselected (inactive) objects display as wire or bounds, 
+
+with posibility add selected active collection to ignore list as many as you need
 
 ![IS_1_0_8](https://user-images.githubusercontent.com/87300864/129542905-4467f689-2404-4832-b70e-6ce52a89ae84.png)
 ![1_0_8](https://user-images.githubusercontent.com/87300864/129542523-58ae3b39-e62c-462d-9034-4bfe18bd99b2.png)
