@@ -26,3 +26,9 @@ Also if you want it to be like this
 
 just rename `OUTLINER_MT_collection_visibility` to `OUTLINER_MT_collection` at the bottom in the script file.
 
+## lock_unlock.py
+simple addon that adds operator to lock selected and unlock all (Freeze/Unfreeze 3ds Max like).
+
+just add any key in Keymaps for this operator `objects.lock_unlock` and choose action
+
+![lock-unlock](https://user-images.githubusercontent.com/87300864/129525373-90708996-2242-4b6f-8768-c16efef1cd79.png)
