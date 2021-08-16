@@ -32,3 +32,19 @@ simple addon that adds operator to lock selected and unlock all (Freeze/Unfreeze
 just add any key in Keymaps for this operator `objects.lock_unlock` and choose action
 
 ![lock-unlock](https://user-images.githubusercontent.com/87300864/129525373-90708996-2242-4b6f-8768-c16efef1cd79.png)
+
+## Outliner_Menu_Entries
+new entries for Outliner context for Objects and for Collections selected:
+
+For objects:
+1. Duplicate - for multiple selected objects
+2. Duplicate Hierarchy - for multiple selected objects without selecting parented elements
+3. Duplicate Instance - for multiple selected objects
+4. Duplicate Instance Hierarchy - for multiple selected objects without selecting parented elements
+5. Select Hierarchy Multi - for multiple selected objects
+
+For collections (possibile with new ‘selected_ids’ feature):
+1. Select Objects - for multiple selected collections
+2. Duplicate Collections - for multiple selected collections (thanks for people from blender.stackexchange)
+3. Duplicate Linked - for multiple selected collections
+
