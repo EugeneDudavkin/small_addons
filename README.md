@@ -13,7 +13,9 @@ def cameras_specials_menu(self, contxt):
 ![Active_Camera_menu](https://user-images.githubusercontent.com/87300864/129523178-0064caf0-fcb9-4e57-96e4-1cba47f61dfd.png)
 
 ## Collection_Visibility.py
-quick switching between objects type visibility in the collection
+quick switching between objects type visibility in the collection.
+Works also from 3d View, BUT
+instead of using active collection it uses selected objects and use all their collection where they located.
 
 ![Collection_Visibility_1](https://user-images.githubusercontent.com/87300864/129524186-686d3100-978a-4e47-bdbe-94b2920b593d.png)
 
