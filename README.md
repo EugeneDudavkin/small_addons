@@ -1,4 +1,3 @@
-# small_addons
 ## Active_Camera_menu.py
 simple addon that add menu entry when any Camera object is selected.
 
