@@ -34,7 +34,9 @@ just add any key in Keymaps for this operator `objects.lock_unlock` and choose a
 ![lock-unlock](https://user-images.githubusercontent.com/87300864/129525373-90708996-2242-4b6f-8768-c16efef1cd79.png)
 
 ## Outliner_Menu_Entries.py
-new entries for Outliner context for Objects and for Collections selected:
+new entries for Outliner context for Objects and for Collections selected.
+
+![Outliner_Menu_Entries](https://user-images.githubusercontent.com/87300864/129544401-e99efe1a-0288-4dbe-8cd4-f349b28359e0.png)
 
 For objects:
 1. Duplicate - for multiple selected objects
@@ -72,5 +74,3 @@ with posibility add selected active collection to ignore list as many as you nee
 
 ![IS_1_0_8](https://user-images.githubusercontent.com/87300864/129542905-4467f689-2404-4832-b70e-6ce52a89ae84.png)
 ![1_0_8](https://user-images.githubusercontent.com/87300864/129542523-58ae3b39-e62c-462d-9034-4bfe18bd99b2.png)
-
-
