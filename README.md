@@ -57,6 +57,13 @@ For collections (possibile with new ‘selected_ids’ feature):
 2. Duplicate Collections - for multiple selected collections (thanks for people from blender.stackexchange)
 3. Duplicate Linked - for multiple selected collections
 
+## Precision_Scaler.py
+Simple addon to scale object. Starting length and final length between two points, and then scale to match values.
+
+![Precision_Scaler_0 0 1](https://user-images.githubusercontent.com/87300864/129952512-b86d7f00-0aae-459f-85e8-caa26c42b98e.png)
+
+https://user-images.githubusercontent.com/87300864/129952496-38d0469b-2a67-441b-be82-a6e0c4805c34.mp4
+
 ## Switch_Active_Collection_0_1_1.py
 Make active Collection where selected active object located
 
@@ -73,10 +80,3 @@ you can get this addon menus here https://blenderartists.org/t/select-sync-uv-ch
 
 ![1](https://user-images.githubusercontent.com/87300864/129541521-0ae5a313-b1b5-4b2e-9802-4602cc75f77a.png)
 ![2](https://user-images.githubusercontent.com/87300864/129541527-448cf1ac-17fc-4409-8f90-21400f7c79d9.png)
-
-## Precision_Scaler.py
-
-![Precision_Scaler_0 0 1](https://user-images.githubusercontent.com/87300864/129952512-b86d7f00-0aae-459f-85e8-caa26c42b98e.png)
-
-https://user-images.githubusercontent.com/87300864/129952496-38d0469b-2a67-441b-be82-a6e0c4805c34.mp4
-
