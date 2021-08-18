@@ -34,7 +34,7 @@ with posibility add selected active collection to ignore list as many as you nee
 ![1_0_8](https://user-images.githubusercontent.com/87300864/129542523-58ae3b39-e62c-462d-9034-4bfe18bd99b2.png)
 
 ## Lock_unlock.py
-simple addon that adds operator to lock selected and unlock all (Freeze/Unfreeze 3ds Max like).
+simple addon that adds operator to lock selected and unlock all (Freeze/Unfreeze 3ds Max like). For those who do not want extra actions in Outliner.
 
 just add any key in Keymaps for this operator `objects.lock_unlock` and choose action
 
