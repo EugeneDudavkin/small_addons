@@ -67,6 +67,8 @@ For collections (possibile with new ‘selected_ids’ feature):
 ## Precision_Scaler.py
 Simple addon to scale object. Starting length and final length between two points, and then scale to match values.
 
+There is option to change Panel category name in addon preferences.
+
 ![Precision_Scaler_0 0 1](https://user-images.githubusercontent.com/87300864/129952512-b86d7f00-0aae-459f-85e8-caa26c42b98e.png)
 
 https://user-images.githubusercontent.com/87300864/129952496-38d0469b-2a67-441b-be82-a6e0c4805c34.mp4
