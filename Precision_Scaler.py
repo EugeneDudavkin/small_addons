@@ -31,7 +31,7 @@ bl_info = {
 
 import bpy
 import bmesh
-from bpy.types import Operator, PropertyGroup, Panel
+from bpy.types import Operator, PropertyGroup, Panel, AddonPreferences
 
 def get_float1(self):
     return self["l1"]
@@ -219,10 +219,59 @@ class PRESCALE_PT_panel(Panel):
         row4.operator("precision.scaler", icon="TRANSFORM_ORIGINS", text="Scale").action = "SCALE"
 
 
+# Add-ons Preferences Update Panel
+
+# Define Panel classes for updating
+panels = (
+        PRESCALE_PT_panel,
+        )
+        
+def update_panel(self, context):
+    message = "PreScale: Updating Panel locations has failed"
+    try:
+        for panel in panels:
+            if "bl_rna" in panel.__dict__:
+                bpy.utils.unregister_class(panel)
+
+        for panel in panels:
+            panel.bl_category = context.preferences.addons[__name__].preferences.category
+            bpy.utils.register_class(panel)
+
+    except Exception as e:
+        print("\n[{}]\n{}\n\nError:\n{}".format(__name__, message, e))
+        pass
+
+
+class PreScalerPreferences(AddonPreferences):
+    # this must match the addon name, use '__package__'
+    # when defining this in a submodule of a python package.
+    bl_idname = __name__
+
+    category: bpy.props.StringProperty(
+            #name="Tab Category",
+            description="Choose a name for the category of the panel",
+            default="PreScale",
+            update=update_panel
+            )
+
+    def draw(self, context):
+        layout = self.layout
+
+#        row = layout.row()
+#        col = row.column()
+#        col.label(text="Tab Category:")
+#        col.prop(self, "category", text="")
+        box = layout.box()
+        row = box.row(align=True)
+        row.label(text='Panel Category (3D View):')
+        row.prop(self, 'category', text="")
+        
+
 classes = (
     PRESCALE_OT_operator,
     PRESCALE_PG_props,
     PRESCALE_PT_panel,
+    PreScalerPreferences,
 )
 
 register, unregister = bpy.utils.register_classes_factory(classes)
@@ -240,4 +289,4 @@ def unregister():
     del bpy.types.Scene.PRESCALE_PG_props
     
 if __name__ == "__main__":
-    register()   
+    register()
