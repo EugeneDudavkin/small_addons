@@ -34,16 +34,20 @@ import bmesh
 from bpy.types import Operator, PropertyGroup, Panel, AddonPreferences
 
 def get_float1(self):
-    return self["l1"]
-
+    scale_props = bpy.context.scene.PRESCALE_PG_props
+    return scale_props.default_first
+    
 def set_float1(self, value):
-    self["l1"] = value
+    scale_props = bpy.context.scene.PRESCALE_PG_props
+    scale_props.default_first = value
 
 def get_float2(self):
-    return self["l2"]
+    scale_props = bpy.context.scene.PRESCALE_PG_props
+    return scale_props.default_second
 
 def set_float2(self, value):
-    self["l2"] = value
+    scale_props = bpy.context.scene.PRESCALE_PG_props
+    scale_props.default_second = value
 
 def distance_between():
     obj = bpy.context.edit_object
@@ -145,22 +149,28 @@ class PRESCALE_OT_operator(Operator):
 
 class PRESCALE_PG_props(PropertyGroup):
 
+    default_first: bpy.props.FloatProperty(
+        default=1
+    )
+    
+    default_second: bpy.props.FloatProperty(
+        default=1
+    )
+    
     l1: bpy.props.FloatProperty(
         name="Get",
         subtype="DISTANCE",
-        get=get_float1,
-        set=set_float1,
         min=0.001,
-        default=1
+        get=get_float1,
+        set=set_float1
     )
     
     l2: bpy.props.FloatProperty(
         name="Set",
         subtype="DISTANCE",
-        get=get_float2,
-        set=set_float2,
         min=0.001,
-        default=1
+        get=get_float2,
+        set=set_float2
     )
     
     use_x: bpy.props.BoolProperty (
@@ -189,6 +199,11 @@ class PRESCALE_PT_panel(Panel):
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'PreScale'
+    
+    @classmethod
+    def poll(cls, context):
+        ob = context.active_object
+        return(ob and ob.type == 'MESH' and context.mode == 'EDIT_MESH')
     
     def draw(self, context):               
         scale_props = context.scene.PRESCALE_PG_props
@@ -241,7 +256,7 @@ def update_panel(self, context):
         print("\n[{}]\n{}\n\nError:\n{}".format(__name__, message, e))
         pass
 
-
+    
 class PreScalerPreferences(AddonPreferences):
     # this must match the addon name, use '__package__'
     # when defining this in a submodule of a python package.
@@ -257,10 +272,6 @@ class PreScalerPreferences(AddonPreferences):
     def draw(self, context):
         layout = self.layout
 
-#        row = layout.row()
-#        col = row.column()
-#        col.label(text="Tab Category:")
-#        col.prop(self, "category", text="")
         box = layout.box()
         row = box.row(align=True)
         row.label(text='Panel Category (3D View):')
@@ -281,6 +292,7 @@ def register():
         bpy.utils.register_class(c)
 
     bpy.types.Scene.PRESCALE_PG_props = bpy.props.PointerProperty(type = PRESCALE_PG_props)
+    update_panel(None, bpy.context)
 
 def unregister():
     for c in classes:
