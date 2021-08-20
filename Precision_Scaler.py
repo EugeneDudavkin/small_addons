@@ -26,7 +26,7 @@ bl_info = {
     "description": "Scale selected by defined length", 
     "doc_url": "",
     "tracker_url": "",      
-    "category": "3D View"
+    "category": "Mesh"
 }
 
 import bpy
