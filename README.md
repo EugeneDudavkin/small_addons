@@ -69,7 +69,11 @@ Simple addon to scale object. Starting length and final length between two point
 
 There is option to change Panel category name in addon preferences.
 
-![Precision_Scaler_0 0 1](https://user-images.githubusercontent.com/87300864/129952512-b86d7f00-0aae-459f-85e8-caa26c42b98e.png)
+Update 0.1.1:
+* added "Selection only" option - to scale only selected elements in Edit mode.
+* added posibility to Get length between two objects in Object mode.
+* "Scale" worked for multiple selected objects in Edit or Object mode.
+![Precision_Scaler_0 1 1](https://user-images.githubusercontent.com/87300864/130333366-9b955599-4a7e-4cb2-8055-220b53d8c940.png)
 
 https://user-images.githubusercontent.com/87300864/129952496-38d0469b-2a67-441b-be82-a6e0c4805c34.mp4
 ----------------------------------------------------------------------------------------------------    ----------------------------------------------------------------------------------------------------  
