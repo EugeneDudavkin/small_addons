@@ -20,7 +20,7 @@ import bpy
 bl_info = {
     "name": "Switch Active Collection",
     "location": "3D View / Outliner, (Hotkey Y)",
-    "version": (0, 1, 1),
+    "version": (0, 1, 0),
     "blender": (2, 90, 0),
     "description": "Switching active Collection to the active Object selected",
     "author": "APEC",
@@ -38,10 +38,9 @@ def recurLayerCollection(layerColl, collName):
             return found
 
 class OUTLINER_OT_switch_collection(bpy.types.Operator):
-    """Switch Active Collection"""
     bl_idname = "outliner.switch_collection"
-    bl_label = ""
-    #bl_options = {'REGISTER', 'UNDO'}
+    bl_label = "Switch Collection"
+    bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod
     def poll(self, context):
@@ -61,15 +60,11 @@ class OUTLINER_OT_switch_collection(bpy.types.Operator):
             bpy.context.view_layer.active_layer_collection = layerColl
         return {'FINISHED'}
 
-def draw_sync_collection(self, context):
-    self.layout.operator("outliner.switch_collection", icon="FILE_TICK")
 
 addon_keymaps = []
 
 
 def register():
-    bpy.types.OUTLINER_HT_header.append(draw_sync_collection)
-    
     bpy.utils.register_class(OUTLINER_OT_switch_collection)
     wm = bpy.context.window_manager
     kc = wm.keyconfigs.addon.keymaps
@@ -87,8 +82,6 @@ def register():
 
 
 def unregister():
-    bpy.types.OUTLINER_HT_header.remove(draw_sync_collection)
-    
     bpy.utils.unregister_class(OUTLINER_OT_switch_collection)
 
     for km, kmi in addon_keymaps:
