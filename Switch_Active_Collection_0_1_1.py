@@ -64,16 +64,10 @@ class OUTLINER_OT_switch_collection(bpy.types.Operator):
 def draw_sync_collection(self, context):
     self.layout.operator("outliner.switch_collection", text="", icon="FILE_TICK")
 
-addon_keymaps = []
-
-
 def register():
-    bpy.types.OUTLINER_HT_header.append(draw_sync_collection)
-    
+    bpy.types.OUTLINER_HT_header.append(draw_sync_collection)    
     bpy.utils.register_class(OUTLINER_OT_switch_collection)
 
-
 def unregister():
-    bpy.types.OUTLINER_HT_header.remove(draw_sync_collection)
-    
+    bpy.types.OUTLINER_HT_header.remove(draw_sync_collection)    
     bpy.utils.unregister_class(OUTLINER_OT_switch_collection)
