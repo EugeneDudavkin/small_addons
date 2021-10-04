@@ -83,6 +83,15 @@ https://user-images.githubusercontent.com/87300864/129952496-38d0469b-2a67-441b-
 Make active Collection where selected active object located
 
 ![SAC_0 1 1](https://user-images.githubusercontent.com/87300864/129539505-6ce278b3-5224-4fbe-8051-9086a7c5eaa4.png)
+
+If you don't need icon in Outliner, then just delete or comment lines 72 and 78 
+```
+bpy.types.OUTLINER_HT_header.append(draw_sync_collection)
+```
+and 
+```
+bpy.types.OUTLINER_HT_header.remove(draw_sync_collection)
+```
 ![0 1 1](https://user-images.githubusercontent.com/87300864/135801891-3753804c-5bd3-4b24-b4fd-d8a425233d23.png)
 ----------------------------------------------------------------------------------------------------    ----------------------------------------------------------------------------------------------------  
 
