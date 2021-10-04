@@ -19,8 +19,8 @@
 import bpy
 bl_info = {
     "name": "Switch Active Collection",
-    "location": "3D View / Outliner, (Hotkey Y)",
-    "version": (0, 1, 0),
+    "location": "3D View / Outliner",
+    "version": (0, 1, 1),
     "blender": (2, 90, 0),
     "description": "Switching active Collection to the active Object selected",
     "author": "APEC",
@@ -38,9 +38,10 @@ def recurLayerCollection(layerColl, collName):
             return found
 
 class OUTLINER_OT_switch_collection(bpy.types.Operator):
+    """Makes an active collection where the active object is located"""
     bl_idname = "outliner.switch_collection"
-    bl_label = "Switch Collection"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_label = "Switch Active Collection"
+    #bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod
     def poll(self, context):
@@ -60,30 +61,19 @@ class OUTLINER_OT_switch_collection(bpy.types.Operator):
             bpy.context.view_layer.active_layer_collection = layerColl
         return {'FINISHED'}
 
+def draw_sync_collection(self, context):
+    self.layout.operator("outliner.switch_collection", text="", icon="FILE_TICK")
 
 addon_keymaps = []
 
 
 def register():
+    bpy.types.OUTLINER_HT_header.append(draw_sync_collection)
+    
     bpy.utils.register_class(OUTLINER_OT_switch_collection)
-    wm = bpy.context.window_manager
-    kc = wm.keyconfigs.addon.keymaps
-    km = kc.get("Object Mode")
-    if not km:
-        km = kc.new("Object Mode")
-    kmi = km.keymap_items.new("outliner.switch_collection", "Y", "PRESS")
-    addon_keymaps.append((km, kmi))
-
-    km = kc.get("Outliner")
-    if not km:
-        km = kc.new("Outliner", space_type="OUTLINER")
-    kmi = km.keymap_items.new("outliner.switch_collection", "Y", "PRESS")
-    addon_keymaps.append((km, kmi))
 
 
 def unregister():
+    bpy.types.OUTLINER_HT_header.remove(draw_sync_collection)
+    
     bpy.utils.unregister_class(OUTLINER_OT_switch_collection)
-
-    for km, kmi in addon_keymaps:
-        km.keymap_items.remove(kmi)
-    addon_keymaps.clear()
