@@ -63,11 +63,18 @@ class OUTLINER_OT_switch_collection(bpy.types.Operator):
 
 def draw_sync_collection(self, context):
     self.layout.operator("outliner.switch_collection", text="", icon="FILE_TICK")
+    
+def draw_sync_collection_menu(self, context):
+    self.layout.separator()
+    self.layout.operator("outliner.switch_collection", text="Set active collection by active object")
 
 def register():
     bpy.types.OUTLINER_HT_header.append(draw_sync_collection)    
+    bpy.types.VIEW3D_MT_object_collection.append(draw_sync_collection_menu)    
     bpy.utils.register_class(OUTLINER_OT_switch_collection)
+
 
 def unregister():
     bpy.types.OUTLINER_HT_header.remove(draw_sync_collection)    
+    bpy.types.VIEW3D_MT_object_collection.remove(draw_sync_collection_menu)    
     bpy.utils.unregister_class(OUTLINER_OT_switch_collection)
