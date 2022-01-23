@@ -20,8 +20,8 @@
 bl_info = {
     "name": "Collection Visibility",
     "author": "APEC",
-    "version": (0, 2, 0),
-    "blender": (2, 93, 0),
+    "version": (0, 3, 0),
+    "blender": (3, 0, 0),
     "location": "Outliner > Collections > RMB > Visibility",
     "description": "Change visibility for collection objects", 
     "doc_url": "",
@@ -55,12 +55,14 @@ class COLLECTION_OT_visibility(Operator):
     def execute(self, context): 
 
         context = bpy.context
-        ops = bpy.ops
+        ops = bpy.ops        
         
+        oldMode = bpy.context.object.mode
         active_object = context.view_layer.objects.active
         objects_originals = context.selected_objects
         
         if context.area.type == "OUTLINER":
+            bpy.ops.object.mode_set(mode='OBJECT')
             collection_names = [col.name for col in context.selected_ids]
             # use only collections whose names are in collection_names
             collections = [col for col in bpy.data.collections if col.name in collection_names]
@@ -69,7 +71,8 @@ class COLLECTION_OT_visibility(Operator):
                 for obj in col.all_objects:
                     obj.select_set(True)
             
-        if context.area.type == "VIEW_3D": 
+        if context.area.type == "VIEW_3D":
+            bpy.ops.object.mode_set(mode='OBJECT')
             selection_names = [obj.name for obj in context.selected_objects]
 
             for o in selection_names:
@@ -96,6 +99,8 @@ class COLLECTION_OT_visibility(Operator):
         for obj in objects_originals:
             obj.select_set(True)
             context.view_layer.objects.active = active_object
+        
+        bpy.ops.object.mode_set(mode=oldMode)
         
         return { 'FINISHED' } 
 
