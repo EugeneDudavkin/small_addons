@@ -109,6 +109,6 @@ you can get this addon menus here https://blenderartists.org/t/select-sync-uv-ch
 ----------------------------------------------------------------------------------------------------    ----------------------------------------------------------------------------------------------------
 
 ## switch_collection_by_active_object.py
-If it's active, it will always switch collection by active object and you can't click on different collection and change it until the icon not disabled (not active).
+If it's active, it will switch collection by clicking on active object.
 
 ![switch_collection_by_active_object](https://user-images.githubusercontent.com/87300864/205039365-7ee8bff6-a85c-4947-9394-50b464c9e989.png)
