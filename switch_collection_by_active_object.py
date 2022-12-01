@@ -20,7 +20,7 @@ import bpy
 bl_info = {
     "name": "Switch Collection by Active Object",
     "location": "3D View / Outliner",
-    "version": (0, 1, 1),
+    "version": (0, 1, 2),
     "blender": (2, 93, 0),
     "description": "Switching active Collection to the active Object selected",
     "author": "APEC",
@@ -40,26 +40,38 @@ def recurLayerCollection(layerColl, collName):
         if found:
             return found
 
-@persistent
-def my_handler(scene):
+def msgbus_callback(*arg):
     switch_props = bpy.context.scene.SWITCH_PG_props
     
-    obj = bpy.context.object
-    ucol = obj.users_collection
-
     if switch_props.olways_switch == True:
     
+        # in console will be print active object name 
+        print("Switching active collection to the object:", bpy.context.view_layer.objects.active.name)
+    
+        obj = bpy.context.object
+        ucol = obj.users_collection
+
         #Switching active Collection to active Object selected
         for i in ucol:
             layer_collection = bpy.context.view_layer.layer_collection
             layerColl = recurLayerCollection(layer_collection, i.name)
             bpy.context.view_layer.active_layer_collection = layerColl
-                    
-        #print("Active object:", bpy.context.view_layer.objects.active.name)
-    
-    else:
-        pass
 
+@persistent
+def my_handler(context, a):
+    subscribe_to_obj()
+
+def subscribe_to_obj(): 
+             
+    bpy.msgbus.subscribe_rna(
+        key=(bpy.types.LayerObjects, 'active'),
+        owner=bpy,
+        #args=('something, if you need',),
+        args=(bpy.context,),
+        notify=msgbus_callback,
+        options={"PERSISTENT"}
+    )
+        
 
 class SWITCH_PG_props(bpy.types.PropertyGroup):
     
@@ -78,7 +90,7 @@ def register():
     bpy.types.OUTLINER_HT_header.append(draw_switch_collection)
     bpy.utils.register_class(SWITCH_PG_props)
     
-    bpy.app.handlers.depsgraph_update_post.append(my_handler)
+    bpy.app.handlers.load_post.append(my_handler)
 
     bpy.types.Scene.SWITCH_PG_props = bpy.props.PointerProperty(type = SWITCH_PG_props)
 
@@ -86,9 +98,9 @@ def unregister():
     bpy.types.OUTLINER_HT_header.remove(draw_switch_collection)
     bpy.utils.unregister_class(SWITCH_PG_props)
     
-    bpy.app.handlers.depsgraph_update_post.remove(my_handler)
+    bpy.app.handlers.load_post.remove(my_handler)
     
     del bpy.types.Scene.SWITCH_PG_props
-    
+        
 if __name__ == "__main__":
     register()
