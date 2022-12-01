@@ -86,7 +86,7 @@ def unregister():
     
     bpy.app.handlers.depsgraph_update_post.remove(my_handler)
     
-    del bpy.types.Scene.PRESCALE_PG_props
+    del bpy.types.Scene.SWITCH_PG_props
     
 if __name__ == "__main__":
     register()
