@@ -112,3 +112,5 @@ you can get this addon menus here https://blenderartists.org/t/select-sync-uv-ch
 If it's active, it will switch collection by clicking on object.
 
 ![switch_collection_by_active_object](https://user-images.githubusercontent.com/87300864/205039365-7ee8bff6-a85c-4947-9394-50b464c9e989.png)
+
+https://user-images.githubusercontent.com/87300864/205099052-58a57b4d-47fa-4041-ad77-05db81d7d06a.mp4
