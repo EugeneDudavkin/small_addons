@@ -42,15 +42,14 @@ def recurLayerCollection(layerColl, collName):
 
 def msgbus_callback(*arg):
     switch_props = bpy.context.scene.SWITCH_PG_props
+    obj = bpy.context.object
+    ucol = obj.users_collection
     
     if switch_props.olways_switch == True:
     
         # in console will be print active object name 
         print("Switching active collection to the object:", bpy.context.view_layer.objects.active.name)
     
-        obj = bpy.context.object
-        ucol = obj.users_collection
-
         #Switching active Collection to active Object selected
         for i in ucol:
             layer_collection = bpy.context.view_layer.layer_collection
@@ -58,7 +57,7 @@ def msgbus_callback(*arg):
             bpy.context.view_layer.active_layer_collection = layerColl
 
 @persistent
-def my_handler(context, a):
+def my_handler(scene):
     subscribe_to_obj()
 
 def subscribe_to_obj(): 
@@ -91,6 +90,7 @@ def register():
     bpy.utils.register_class(SWITCH_PG_props)
     
     bpy.app.handlers.load_post.append(my_handler)
+    subscribe_to_obj()
 
     bpy.types.Scene.SWITCH_PG_props = bpy.props.PointerProperty(type = SWITCH_PG_props)
 
