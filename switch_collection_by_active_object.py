@@ -28,6 +28,7 @@ bl_info = {
 }
 
 import bpy
+from bpy.app.handlers import persistent
 
 #Recursivly transverse layer_collection for a particular name
 def recurLayerCollection(layerColl, collName):
@@ -39,6 +40,7 @@ def recurLayerCollection(layerColl, collName):
         if found:
             return found
 
+@persistent
 def my_handler(scene):
     switch_props = bpy.context.scene.SWITCH_PG_props
     
