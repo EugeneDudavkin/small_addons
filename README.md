@@ -79,6 +79,12 @@ Update 0.1.1:
 https://user-images.githubusercontent.com/87300864/129952496-38d0469b-2a67-441b-be82-a6e0c4805c34.mp4
 ----------------------------------------------------------------------------------------------------    ----------------------------------------------------------------------------------------------------  
 
+## Select_Shape_Keys_Vertices.py
+Simple addon to select vertices affected by shape keys.
+
+![Select_Shape_Keys_Vertices](https://user-images.githubusercontent.com/87300864/205247743-23455fae-fe6f-4e7f-b1db-40a88b223501.jpg)
+----------------------------------------------------------------------------------------------------    ----------------------------------------------------------------------------------------------------  
+
 ## Switch_Active_Collection_0_1_1.py
 Make active Collection where selected active object located
 
