@@ -28,7 +28,7 @@ bl_info = {
 }
 
 import bpy
-#from bpy.app.handlers import persistent
+from bpy.app.handlers import persistent
 
 #Recursivly transverse layer_collection for a particular name
 def recurLayerCollection(layerColl, collName):
@@ -56,7 +56,7 @@ def msgbus_callback(*arg):
             layerColl = recurLayerCollection(layer_collection, i.name)
             bpy.context.view_layer.active_layer_collection = layerColl
 
-#@persistent
+@persistent
 def my_handler(scene):
     subscribe_to_obj()
 
