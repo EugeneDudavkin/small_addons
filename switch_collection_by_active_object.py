@@ -30,17 +30,17 @@ bl_info = {
 import bpy
 from bpy.app.handlers import persistent
 
+#Recursivly transverse layer_collection for a particular name
+def recurLayerCollection(layerColl, collName):
+    found = None
+    if (layerColl.name == collName):
+        return layerColl
+    for layer in layerColl.children:
+        found = recurLayerCollection(layer, collName)
+        if found:
+            return found
+
 def msgbus_callback(*arg):
-    #Recursivly transverse layer_collection for a particular name
-    def recurLayerCollection(layerColl, collName):
-        found = None
-        if (layerColl.name == collName):
-            return layerColl
-        for layer in layerColl.children:
-            found = recurLayerCollection(layer, collName)
-            if found:
-                return found
-                
     switch_props = bpy.context.scene.SWITCH_PG_props
     obj = bpy.context.object
     ucol = obj.users_collection
