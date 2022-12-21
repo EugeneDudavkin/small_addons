@@ -20,7 +20,7 @@ import bpy
 bl_info = {
     "name": "Switch Collection by Active Object",
     "location": "3D View / Outliner",
-    "version": (0, 1, 2),
+    "version": (0, 1, 3),
     "blender": (2, 93, 0),
     "description": "Switching active Collection to the active Object selected",
     "author": "APEC",
@@ -29,6 +29,9 @@ bl_info = {
 
 import bpy
 from bpy.app.handlers import persistent
+
+def active():
+    return bpy.context.active_object is not None and bpy.context.active_object.select_get()
 
 #Recursivly transverse layer_collection for a particular name
 def recurLayerCollection(layerColl, collName):
@@ -41,20 +44,21 @@ def recurLayerCollection(layerColl, collName):
             return found
 
 def msgbus_callback(*arg):
-    switch_props = bpy.context.scene.SWITCH_PG_props
-    obj = bpy.context.object
-    ucol = obj.users_collection
-    
-    if switch_props.olways_switch == True:
-    
-        # in console will be print active object name 
-        print("Switching active collection to the object:", bpy.context.view_layer.objects.active.name)
-    
-        #Switching active Collection to active Object selected
-        for i in ucol:
-            layer_collection = bpy.context.view_layer.layer_collection
-            layerColl = recurLayerCollection(layer_collection, i.name)
-            bpy.context.view_layer.active_layer_collection = layerColl
+    if active():
+        switch_props = bpy.context.scene.SWITCH_PG_props
+        obj = bpy.context.object
+        ucol = obj.users_collection
+        
+        if switch_props.olways_switch == True:
+        
+            # in console will be print active object name 
+            print("Switching active collection to the object:", bpy.context.view_layer.objects.active.name)
+        
+            #Switching active Collection to active Object selected
+            for i in ucol:
+                layer_collection = bpy.context.view_layer.layer_collection
+                layerColl = recurLayerCollection(layer_collection, i.name)
+                bpy.context.view_layer.active_layer_collection = layerColl
 
 @persistent
 def my_handler(scene):
